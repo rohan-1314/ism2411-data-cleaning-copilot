@@ -19,7 +19,7 @@ import pandas as pd
 # Why: Centralizes file loading and lets the project scale easily.
 
 def load_data(file_path: str) -> pd.DataFrame:
-    df = pd.read_csv(file_path)
+    df = pd.read_csv("data\sales_data_raw.csv")
     return df
 
 # Function: clean_column_names
@@ -51,7 +51,7 @@ def handle_missing_values(df: pd.DataFrame) -> pd.DataFrame:
         df[col] = df[col].astype(str).str.strip()
 
     # Drop rows where price or quantity is missing
-    df = df.dropna(subset=["price", "quantity"])
+    df = df.dropna(subset=["price", "qty"]) 
 
     return df
 
@@ -70,8 +70,8 @@ def remove_invalid_rows(df: pd.DataFrame) -> pd.DataFrame:
 # Allows script to be run end-to-end.
 
 if __name__ == "__main__":
-    raw_path = "data/raw/sales_data_raw.csv"
-    cleaned_path = "data/processed/sales_data_clean.csv"
+    raw_path = "data\sales_data_raw.csv"
+    cleaned_path = "data\processed\sales_data_clean.csv"
 
     df_raw = load_data(raw_path)
     df_clean = clean_column_names(df_raw)
