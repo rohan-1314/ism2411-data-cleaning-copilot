@@ -11,7 +11,7 @@ The script takes a messy sales CSV file and cleans it by:
 - Removing invalid rows (negative prices or quantities)  
 - Exporting a processed CSV ready for analysis  
 
-## Project Structure
+### Project Structure
 ism2411-data-cleaning-copilot/
 ├── data/
 │   ├── raw/
@@ -22,6 +22,10 @@ ism2411-data-cleaning-copilot/
 │   └── data_cleaning.py            
 ├── README.md                           
 └── reflection.md                       
+
+
+
+
 
 ## How to Run
 From the project root, run:
