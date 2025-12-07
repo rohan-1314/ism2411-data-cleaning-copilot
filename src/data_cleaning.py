@@ -55,3 +55,13 @@ def handle_missing_values(df: pd.DataFrame) -> pd.DataFrame:
 
     return df
 
+# Function: remove_invalid_rows
+# Copilot-assisted: YES
+# What it does: Removes negative prices and quantities.
+# Why: Negative values are data entry errors and cannot represent real sales.
+
+def remove_invalid_rows(df: pd.DataFrame) -> pd.DataFrame:
+    df = df.copy()
+    df = df[df["price"] >= 0]
+    df = df[df["quantity"] >= 0]
+    return df
