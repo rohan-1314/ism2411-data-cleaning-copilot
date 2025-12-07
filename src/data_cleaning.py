@@ -21,3 +21,20 @@ import pandas as pd
 def load_data(file_path: str) -> pd.DataFrame:
     df = pd.read_csv(file_path)
     return df
+
+# Function: clean_column_names
+# Copilot-assisted: YES
+# What it does: Standardizes column names to lowercase and underscores.
+# Why: Ensures consistency and prevents key errors later in cleaning steps.
+
+def clean_column_names(df: pd.DataFrame) -> pd.DataFrame:
+    df = df.copy()
+    df.columns = (
+        df.columns.str.strip()
+        .str.lower()
+        .str.replace(" ", "_")
+        .str.replace("-", "_")
+    )
+    return df
+
+
