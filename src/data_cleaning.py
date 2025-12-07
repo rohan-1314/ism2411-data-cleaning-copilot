@@ -37,4 +37,21 @@ def clean_column_names(df: pd.DataFrame) -> pd.DataFrame:
     )
     return df
 
+# Function: handle_missing_values
+# Copilot-assisted: YES
+# What it does: Handles missing values in price and quantity.
+# Why: Missing numerical values break calculations and indicate incomplete data.
+
+def handle_missing_values(df: pd.DataFrame) -> pd.DataFrame:
+    df = df.copy()
+
+    # Strip text fields (product, category)
+    str_cols = df.select_dtypes(include="object").columns
+    for col in str_cols:
+        df[col] = df[col].astype(str).str.strip()
+
+    # Drop rows where price or quantity is missing
+    df = df.dropna(subset=["price", "quantity"])
+
+    return df
 
