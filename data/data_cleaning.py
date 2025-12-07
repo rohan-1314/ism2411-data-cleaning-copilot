@@ -82,3 +82,6 @@ if __name__ == "__main__":
     
     print("Cleaning complete. First few rows:")
     print(df_clean.head())
+
+    # I am encountering some errors in the code and was not able to generate the cleaned csv file 
+    # after trying to fix errors many times.
